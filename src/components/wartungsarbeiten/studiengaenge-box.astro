@@ -1,0 +1,37 @@
+---
+export interface Studiengang {
+  name: string;
+  degree: string;
+}
+
+export interface Props {
+  title: string;
+  studiengaenge: Studiengang[];
+}
+
+const { title, studiengaenge } = Astro.props;
+---
+
+<div class="bg-haw-900/85 rounded-xl p-5 border border-haw-700/50">
+  <h3 class="text-sm font-semibold uppercase tracking-wider text-haw-200 mb-3">
+    {title}
+  </h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm sm:text-base">
+    {
+      studiengaenge.map((item) => (
+        <div class="flex items-start gap-2">
+          <span
+            class="w-2 h-2 rounded-full bg-haw-300 mt-2 shrink-0"
+            aria-hidden="true"
+          />
+          <p class="font-medium text-white leading-snug">
+            {item.name}
+            <span class="text-xs text-haw-200 font-mono whitespace-nowrap ml-1">
+              ({item.degree})
+            </span>
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</div>

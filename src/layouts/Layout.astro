@@ -1,23 +1,37 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
+import Header from "../components/header/header.astro";
+import Footer from "../components/footer/footer.astro";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Orientierungseinheit EMI & INF - HAW Hamburg",
+  description = "Offizielle Orientierungseinheit der Fakultät Elektro-, Medien- und Informationstechnik sowie der Fakultät Informatik und Digitale Gesellschaft an der HAW Hamburg.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body
+    class="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-haw-200 selection:text-haw-900"
+  >
+    <Header />
+
+    <main class="flex-1 flex flex-col">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+interface Props {
+    label: string;
+    href: string;
+}
+
+const { label, href } = Astro.props as Props;
+
+const { pathname } = Astro.url;
+const currentPath = pathname.replace(/\/$/, "") || "/";
+
+const isActive = currentPath === href;
+---
+
+<a
+    href={href}
+    class={`px-3 py-2 rounded-md text-sm font-medium ${
+        isActive
+            ? "bg-haw-50 text-haw-700 font-semibold"
+            : "text-slate-600 hover:text-haw-700 hover:bg-slate-50"
+    }`}
+>
+    {label}
+</a>

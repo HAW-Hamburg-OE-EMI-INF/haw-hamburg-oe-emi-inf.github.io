@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* HAW Hamburg & OE Blue Scale */
+  --color-haw-50: #eff6ff;
+  --color-haw-100: #dbeafe;
+  --color-haw-200: #bfdbfe;
+  --color-haw-300: #8ac5ff;
+  --color-haw-400: #488fef;
+  --color-haw-500: #1976d2;
+  /* Vuetify base primary */
+  --color-haw-600: #005eb6;
+  /* Hero banner primary darken-1 */
+  --color-haw-700: #00479b;
+  /* Announcement primary darken-2 */
+  --color-haw-800: #003ca0;
+  /* Official HAW Hamburg corporate blue */
+  --color-haw-900: #003180;
+  /* Primary darken-3 */
+  --color-haw-950: #001e67;
+  /* Primary darken-4 / deep navy */
+
+  /* Semantic Primary mapping */
+  --color-primary-50: var(--color-haw-50);
+  --color-primary-100: var(--color-haw-100);
+  --color-primary-200: var(--color-haw-200);
+  --color-primary-300: var(--color-haw-300);
+  --color-primary-400: var(--color-haw-400);
+  --color-primary-500: var(--color-haw-500);
+  --color-primary-600: var(--color-haw-600);
+  --color-primary-700: var(--color-haw-700);
+  --color-primary-800: var(--color-haw-800);
+  --color-primary-900: var(--color-haw-900);
+  --color-primary-950: var(--color-haw-950);
+
+  /* OE Accent & Status Colors */
+  --color-oe-accent: #82b1ff;
+  --color-oe-secondary: #424242;
+  --color-oe-success: #4caf50;
+  --color-oe-warning: #fb8c00;
+  --color-oe-error: #ff5252;
+  --color-oe-info: #2196f3;
+}
+
+:root {
+  --color-bg-page: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-text-main: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-page);
+    color: var(--color-text-main);
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  a {
+    color: var(--color-haw-600);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--color-haw-800);
+  }
+}

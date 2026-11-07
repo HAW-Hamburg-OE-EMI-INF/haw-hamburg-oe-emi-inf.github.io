@@ -1,0 +1,40 @@
+---
+export interface Faculty {
+  short: string;
+  name: string;
+}
+
+interface Props {
+  faculties?: Faculty[];
+}
+
+const defaultFaculties: Faculty[] = [
+  {
+    short: "EMI",
+    name: "Elektro-, Medien- und Informationstechnik",
+  },
+  {
+    short: "INF",
+    name: "Informatik und Digitale Gesellschaft",
+  },
+];
+
+const { faculties = defaultFaculties } = Astro.props;
+---
+
+{
+  faculties && faculties.length > 0 && (
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
+      {faculties.map((fac) => (
+        <div class="flex items-center gap-3 p-3 sm:p-3.5 rounded-xl bg-haw-800/80 border border-haw-400/25 backdrop-blur-xs shadow-xs min-h-15 sm:min-h-17">
+          <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-haw-500/50 border border-haw-300/30 text-white font-bold text-xs tracking-wider shrink-0">
+            {fac.short}
+          </span>
+          <span class="text-xs sm:text-sm text-haw-50 leading-snug font-medium">
+            {fac.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}

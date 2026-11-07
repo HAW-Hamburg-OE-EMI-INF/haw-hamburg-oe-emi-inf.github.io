@@ -1,0 +1,58 @@
+---
+import Card from "../card/card.astro";
+import infoIcon from "../../assets/icons/info.svg?raw";
+import StudiengaengeBox, { type Studiengang } from "./studiengaenge-box.astro";
+
+const studiengaengeEMI: Studiengang[] = [
+  { name: "Elektrotechnik und Informationstechnik", degree: "B.Sc." },
+  { name: "Information Engineering", degree: "B.Sc." },
+  { name: "Medientechnik", degree: "B.Sc." },
+  {
+    name: "Regenerative Energiesysteme und Energiemanagement – Elektro- und Informationstechnik",
+    degree: "B.Sc.",
+  },
+  // { name: "Automatisierung", degree: "M.Sc." },
+  // { name: "Information and Communications Engineering", degree: "M.Sc." },
+  // { name: "Microelectronic Systems", degree: "M.Sc." },
+  // { name: "Zeitabhängige Medien / Sound – Vision", degree: "M.A." },
+];
+
+const studiengaengeINF: Studiengang[] = [
+  { name: "Angewandte Informatik", degree: "B.Sc." },
+  { name: "Informatik Technischer Systeme", degree: "B.Sc." },
+  { name: "European Computer Science", degree: "B.Sc." },
+  { name: "Wirtschaftsinformatik", degree: "B.Sc." },
+  { name: "Medieninformatik", degree: "B.Sc." },
+  { name: "Bibliotheks- und Informationsmanagement", degree: "B.A." },
+  { name: "Master Informatik", degree: "M.Sc." },
+];
+---
+
+<Card variant="haw">
+  <div class="flex items-center gap-3 mb-4">
+    <div
+      class="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center text-white shrink-0 [&>svg]:w-6 [&>svg]:h-6"
+    >
+      <Fragment set:html={infoIcon} />
+    </div>
+    <h2 class="text-2xl font-bold">Wichtige Informationen</h2>
+  </div>
+
+  <p class="text-haw-100 text-base sm:text-lg mb-6 leading-relaxed">
+    Auf dieser Seite sind die Informationen für die Orientierungseinheit <strong
+      >EMI</strong
+    >¹ und <strong>INF</strong>² kurz vor Semesterbeginn zu finden.
+  </p>
+
+  <div class="space-y-4">
+    <StudiengaengeBox
+      title="¹ Studiengänge der Fakultät Elektro-, Medien- und Informationstechnik:"
+      studiengaenge={studiengaengeEMI}
+    />
+
+    <StudiengaengeBox
+      title="² Studiengänge der Fakultät Informatik und Digitale Gesellschaft:"
+      studiengaenge={studiengaengeINF}
+    />
+  </div>
+</Card>

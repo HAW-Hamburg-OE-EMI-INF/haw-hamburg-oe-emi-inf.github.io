@@ -1,0 +1,64 @@
+---
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  backgroundImage?: ImageMetadata;
+  imageAlt?: string;
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  backgroundImage,
+  imageAlt,
+  title,
+  subtitle,
+  class: className = "",
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "relative overflow-hidden bg-slate-900 text-white min-h-105 md:min-h-120 flex items-center justify-center",
+    className,
+  ]}
+>
+  {
+    backgroundImage && (
+      <div class="absolute inset-0 z-0">
+        <img
+          src={backgroundImage.src}
+          alt={imageAlt}
+          class="w-full h-full object-cover opacity-35 filter brightness-75 scale-105"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-haw-900/20" />
+      </div>
+    )
+  }
+
+  <div
+    class="relative z-10 max-w-4xl mx-auto px-4 py-12 sm:px-6 text-center flex flex-col items-center w-full"
+  >
+    <div
+      class="bg-haw-700 text-white px-6 py-6 rounded-2xl shadow-2xl backdrop-blur-md border border-white/15"
+    >
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-3"
+      >
+        {title}
+      </h1>
+
+      {
+        subtitle && (
+          <p class="text-haw-100/90 text-sm sm:text-base md:text-lg font-medium max-w-4xl mx-auto mb-6">
+            {subtitle}
+          </p>
+        )
+      }
+
+      <slot />
+    </div>
+  </div>
+</section>
