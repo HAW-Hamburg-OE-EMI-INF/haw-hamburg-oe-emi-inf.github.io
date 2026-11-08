@@ -25,10 +25,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build
-        run: |
-          npm clean-install
-          npm run build
+      - name: Install dependencies
+        run: npm clean-install
+
+      - name: Check formatting (oxfmt)
+        run: npm run fmt:check
+
+      - name: Run linter (ESLint)
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
