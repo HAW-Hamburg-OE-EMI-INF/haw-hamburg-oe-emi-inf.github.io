@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../hero/hero.astro";
+import Card from "../card/card.astro";
+
+import type { StudiengangPageId } from "../../types/types";
+import { tutorNames } from "../../data/tutor-names";
+import { studiengaengeByPage } from "../../data/studiengaenge";
+import { linksByPage } from "../../data/links";
+
+export interface Props {
+  studiengangPageId: StudiengangPageId;
+}
+
+const { studiengangPageId } = Astro.props;
+
+function formatTutors(list: string[]): string {
+  if (!list || list.length === 0) return "";
+
+  list.sort();
+
+  if (list.length === 1) return list[0];
+  if (list.length === 2) return `${list[0]} und ${list[1]}`;
+  return `${list.slice(0, -1).join(", ")} und ${list[list.length - 1]}`;
+}
+
+const formattedTutors = formatTutors(tutorNames[studiengangPageId]);
+
+const studiengaenge = studiengaengeByPage[studiengangPageId];
+
+const studiengangNames = studiengaenge.map((s) => s.name).join(" und ");
+const tutorTitle = studiengaenge.map((s) => s.short).join("- und ");
+
+const pageTitleName = studiengaenge
+  .map((s) => `${s.name} (${s.short})`)
+  .join(" | ");
+
+const links = linksByPage[studiengangPageId];
+---
+
+<Layout title={`${pageTitleName} - Orientierungseinheit EMI & INF`}>
+  <Hero
+    title={studiengangNames}
+    subtitle={`Fakultät ${studiengaenge[0].faculty.name}`}
+    compact
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-6">
+    <Card variant="white" heading=`Eure ${tutorTitle}-Tutor*innen`>
+      <p class="text-slate-700 text-base leading-relaxed">
+        {
+          formattedTutors ||
+            "Die Tutor*innen für diesen Studiengang werden noch bekanntgegeben."
+        }
+      </p>
+    </Card>
+
+    <Card variant="white" heading="Linksammlung">
+      <ul class="list-disc pl-5 space-y-3">
+        {
+          links.map((link) => (
+            <li class="leading-relaxed">
+              <div>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="text-haw-600 hover:text-haw-800 font-medium hover:underline inline-block"
+                >
+                  {link.label}
+                </a>{" "}
+                {link.teamsCode && (
+                  <span class="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200">
+                    Teams&#x2011;Code:&nbsp;{link.teamsCode}
+                  </span>
+                )}
+              </div>
+              {link.note && (
+                <span class="text-sm text-slate-600 mt-0.5">{link.note}</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </Card>
+  </div>
+</Layout>

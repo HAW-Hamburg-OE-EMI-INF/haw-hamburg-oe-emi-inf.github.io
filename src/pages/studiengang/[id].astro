@@ -1,0 +1,18 @@
+---
+import type { GetStaticPaths } from "astro";
+import StudiengangPage from "../../components/studiengang-detail/studiengang-page.astro";
+import { studiengaengeByPage } from "../../data/studiengaenge";
+import type { StudiengangPageId } from "../../types/types";
+
+export const getStaticPaths = (() => {
+    const pageIds = Object.keys(studiengaengeByPage) as StudiengangPageId[];
+    return pageIds.map((id) => ({
+        params: { id },
+        props: { studiengangPageId: id },
+    }));
+}) satisfies GetStaticPaths;
+
+const { studiengangPageId } = Astro.props;
+---
+
+<StudiengangPage studiengangPageId={studiengangPageId} />
