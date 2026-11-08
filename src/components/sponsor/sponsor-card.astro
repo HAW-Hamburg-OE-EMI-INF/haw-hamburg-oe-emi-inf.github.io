@@ -5,7 +5,7 @@ import fveiLogo from "../../assets/logo/logo_FvEI_komplett.svg";
 import Card from "../card/card.astro";
 ---
 
-<Card variant="white" class="text-center">
+<Card class="text-center" variant="white">
   <div class="mx-auto flex max-w-2xl flex-col items-center gap-4">
     <p class="text-sm leading-relaxed text-slate-800 sm:text-base">
       <strong>
@@ -13,6 +13,6 @@ import Card from "../card/card.astro";
         für die anhaltende finanzielle Unterstützung unserer OE.
       </strong>
     </p>
-    <Image src={fveiLogo} alt="logo_FvEI_komplett.svg" class="h-12 w-auto object-contain sm:h-14" />
+    <Image alt="logo_FvEI_komplett.svg" class="h-12 w-auto object-contain sm:h-14" src={fveiLogo} />
   </div>
 </Card>

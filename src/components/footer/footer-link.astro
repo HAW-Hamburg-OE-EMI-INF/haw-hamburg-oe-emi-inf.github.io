@@ -8,10 +8,10 @@ const { href, isExternal = false } = Astro.props as Props;
 ---
 
 <a
-  href={href}
-  target={isExternal ? "_blank" : undefined}
-  rel={isExternal ? "noopener noreferrer" : undefined}
   class="hover:text-haw-700"
+  href={href}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+  target={isExternal ? "_blank" : undefined}
 >
   <slot />
 </a>

@@ -10,8 +10,8 @@ const { studiengang } = Astro.props;
 ---
 
 <a
-  href={`${studiengang.details.base}/${studiengang.details.entryId}`}
   class="group hover:border-haw-500 flex h-full items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 shadow-xs transition-all duration-200 hover:shadow-md sm:p-5"
+  href={`${studiengang.details.base}/${studiengang.details.entryId}`}
 >
   <div class="flex min-w-0 flex-1 items-center gap-3.5 sm:gap-4">
     <span class="bg-haw-50 border-haw-200/80 text-haw-700 group-hover:bg-haw-700 group-hover:border-haw-700 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border font-mono text-sm font-bold transition-colors duration-200 group-hover:text-white sm:text-base">

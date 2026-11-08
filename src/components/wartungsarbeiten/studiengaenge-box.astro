@@ -14,7 +14,7 @@ const { title, studiengaenge } = Astro.props;
   <div class="grid grid-cols-1 gap-2.5 text-sm sm:grid-cols-2 sm:text-base">
     {studiengaenge.map((item) => (
       <div class="flex items-start gap-2">
-        <span class="bg-haw-300 mt-2 h-2 w-2 shrink-0 rounded-full" aria-hidden="true" />
+        <span aria-hidden="true" class="bg-haw-300 mt-2 h-2 w-2 shrink-0 rounded-full" />
         <p class="leading-snug font-medium text-white">
           {item.name}
           <span class="text-haw-200 ml-1 font-mono text-xs whitespace-nowrap">({item.degree})</span>

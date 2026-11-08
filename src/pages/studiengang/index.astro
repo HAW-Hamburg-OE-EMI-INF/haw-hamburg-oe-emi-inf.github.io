@@ -24,7 +24,7 @@ const entries: Entry[] = [
 ---
 
 <Layout title="Studiengänge - Orientierungseinheit EMI & INF">
-  <Hero title="Studiengänge" compact />
+  <Hero compact title="Studiengänge" />
 
   <div class="mx-auto w-full max-w-4xl space-y-10 px-4 py-10 sm:px-6">
     <!-- Quick Links zu den Fakultäten -->
@@ -38,8 +38,8 @@ const entries: Entry[] = [
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {entries.map((entry) => (
           <a
-            href={`#${entry.facultyEntry.short.toLowerCase()}`}
             class="hover:bg-haw-50 hover:border-haw-300 group flex items-center gap-3 rounded-xl border border-slate-200/80 bg-slate-50 p-3.5 transition-all duration-200"
+            href={`#${entry.facultyEntry.short.toLowerCase()}`}
           >
             <span class="bg-haw-700 inline-flex shrink-0 items-center justify-center rounded-md px-2.5 py-1 text-xs font-bold tracking-wider text-white">
               {entry.facultyEntry.short}
@@ -54,7 +54,7 @@ const entries: Entry[] = [
 
     <!-- Fakultäten mit Studiengängen -->
     {entries.map((entry) => (
-      <section id={entry.facultyEntry.short.toLowerCase()} class="scroll-mt-20 space-y-4">
+      <section class="scroll-mt-20 space-y-4" id={entry.facultyEntry.short.toLowerCase()}>
         <div class="border-b border-slate-200 pb-2">
           <div class="flex items-center gap-2">
             <span class="bg-haw-100 text-haw-800 rounded px-2 py-0.5 text-xs font-bold tracking-wider uppercase">
