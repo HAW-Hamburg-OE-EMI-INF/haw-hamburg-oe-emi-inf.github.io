@@ -1,31 +1,9 @@
 ---
 import Card from "../card/card.astro";
 import infoIcon from "../../assets/icons/info.svg?raw";
-import StudiengaengeBox, { type Studiengang } from "./studiengaenge-box.astro";
+import StudiengaengeBox from "./studiengaenge-box.astro";
 
-const studiengaengeEMI: Studiengang[] = [
-  { name: "Elektrotechnik und Informationstechnik", degree: "B.Sc." },
-  { name: "Information Engineering", degree: "B.Sc." },
-  { name: "Medientechnik", degree: "B.Sc." },
-  {
-    name: "Regenerative Energiesysteme und Energiemanagement",
-    degree: "B.Sc.",
-  },
-  // { name: "Automatisierung", degree: "M.Sc." },
-  // { name: "Information and Communications Engineering", degree: "M.Sc." },
-  // { name: "Microelectronic Systems", degree: "M.Sc." },
-  // { name: "Zeitabhängige Medien / Sound – Vision", degree: "M.A." },
-];
-
-const studiengaengeINF: Studiengang[] = [
-  { name: "Angewandte Informatik", degree: "B.Sc." },
-  { name: "Informatik Technischer Systeme", degree: "B.Sc." },
-  { name: "European Computer Science", degree: "B.Sc." },
-  { name: "Wirtschaftsinformatik", degree: "B.Sc." },
-  { name: "Medieninformatik", degree: "B.Sc." },
-  { name: "Bibliotheks- und Informationsmanagement", degree: "B.A." },
-  { name: "Master Informatik", degree: "M.Sc." },
-];
+import { studiengaengeEMI, studiengaengeINF } from "../../data/studiengaenge";
 ---
 
 <Card

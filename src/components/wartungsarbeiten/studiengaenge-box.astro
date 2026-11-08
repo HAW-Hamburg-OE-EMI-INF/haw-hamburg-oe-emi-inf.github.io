@@ -1,12 +1,9 @@
 ---
-export interface Studiengang {
-  name: string;
-  degree: string;
-}
+import type { StudiengangEntry } from "../../types/types";
 
 export interface Props {
   title: string;
-  studiengaenge: Studiengang[];
+  studiengaenge: StudiengangEntry[];
 }
 
 const { title, studiengaenge } = Astro.props;
