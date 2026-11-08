@@ -1,23 +1,17 @@
 ---
-import type { HTMLTag } from "astro/types";
-
 export interface Props {
   variant?: "white" | "default" | "haw" | "primary" | "dark" | "muted";
-  padding?: "none" | "sm" | "md" | "lg";
-  rounded?: "none" | "md" | "lg" | "xl" | "2xl" | "3xl";
+  heading?: string;
+  headingTrailingIcon?: string;
   class?: string;
-  as?: HTMLTag;
-  [key: string]: any;
 }
 
 const {
   variant = "white",
-  padding = "lg",
-  rounded = "2xl",
+  heading,
+  headingTrailingIcon,
   class: className = "",
-  as: Tag = "div",
-  ...rest
-} = Astro.props;
+} = Astro.props as Props;
 
 const variantClasses: Record<string, string> = {
   white: "bg-white border border-slate-200 shadow-xs text-slate-900",
@@ -27,32 +21,22 @@ const variantClasses: Record<string, string> = {
   dark: "bg-haw-800/80 text-white border border-haw-600/40 shadow-xs",
   muted: "bg-slate-50 border border-slate-200 text-slate-800",
 };
-
-const paddingClasses: Record<string, string> = {
-  none: "",
-  sm: "p-4",
-  md: "p-5 sm:p-6",
-  lg: "p-6 sm:p-8",
-};
-
-const roundedClasses: Record<string, string> = {
-  none: "rounded-none",
-  md: "rounded-md",
-  lg: "rounded-lg",
-  xl: "rounded-xl",
-  "2xl": "rounded-2xl",
-  "3xl": "rounded-3xl",
-};
 ---
 
-<Tag
-  class:list={[
-    roundedClasses[rounded] ?? "rounded-2xl",
-    paddingClasses[padding] ?? "p-6 sm:p-8",
-    variantClasses[variant] ?? variantClasses.white,
-    className,
-  ]}
-  {...rest}
+<div
+  class:list={["rounded-2xl p-6 sm:p-8", variantClasses[variant], className]}
 >
+  {
+    (heading || headingTrailingIcon) && (
+      <div class="flex items-center gap-3 mb-4">
+        {headingTrailingIcon && (
+          <div class="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center text-white shrink-0 [&>svg]:w-6 [&>svg]:h-6">
+            <Fragment set:html={headingTrailingIcon} />
+          </div>
+        )}
+        {heading && <h2 class="text-2xl font-bold">{heading}</h2>}
+      </div>
+    )
+  }
   <slot />
-</Tag>
+</div>

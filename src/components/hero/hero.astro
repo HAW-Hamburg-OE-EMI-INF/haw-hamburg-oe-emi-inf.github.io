@@ -23,7 +23,9 @@ const {
 <section
   class:list={[
     "relative overflow-hidden text-white flex items-center justify-center",
-    compact ? "bg-haw-900 py-8 sm:py-10" : "bg-slate-900 min-h-105 md:min-h-120",
+    compact
+      ? "bg-haw-900 py-8 sm:py-10"
+      : "bg-slate-900 min-h-105 md:min-h-120",
     className,
   ]}
 >
@@ -61,7 +63,12 @@ const {
 
       {
         subtitle && (
-          <p class="text-haw-100/90 text-sm sm:text-base md:text-lg font-medium max-w-4xl mx-auto mb-6">
+          <p
+            class:list={[
+              "text-haw-100/90 text-sm sm:text-base md:text-lg font-medium max-w-4xl mx-auto",
+              Astro.slots.has("default") ? "mb-6" : "",
+            ]}
+          >
             {subtitle}
           </p>
         )
