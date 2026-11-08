@@ -1,22 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import Card from "../card/card.astro";
+
 import fveiLogo from "../../assets/logo/logo_FvEI_komplett.svg";
+import Card from "../card/card.astro";
 ---
 
 <Card variant="white" class="text-center">
-  <div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
-    <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
+  <div class="mx-auto flex max-w-2xl flex-col items-center gap-4">
+    <p class="text-sm leading-relaxed text-slate-800 sm:text-base">
       <strong>
-        Ein besonderer Dank an den Förderverein Elektrotechnik und Informatik
-        der HAW Hamburg e.V. für die anhaltende finanzielle Unterstützung
-        unserer OE.
+        Ein besonderer Dank an den Förderverein Elektrotechnik und Informatik der HAW Hamburg e.V.
+        für die anhaltende finanzielle Unterstützung unserer OE.
       </strong>
     </p>
-    <Image
-      src={fveiLogo}
-      alt="logo_FvEI_komplett.svg"
-      class="h-12 sm:h-14 w-auto object-contain"
-    />
+    <Image src={fveiLogo} alt="logo_FvEI_komplett.svg" class="h-12 w-auto object-contain sm:h-14" />
   </div>
 </Card>

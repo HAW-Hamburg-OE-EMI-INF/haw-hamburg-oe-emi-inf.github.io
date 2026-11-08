@@ -4,5 +4,5 @@ export default defineConfig({
   ignorePatterns: [],
   sortImports: true,
   sortTailwindcss: true,
-  astro: false,
+  astro: true,
 });

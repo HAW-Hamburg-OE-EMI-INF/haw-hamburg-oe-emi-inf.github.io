@@ -2,17 +2,13 @@
 import { faculties } from "../../data/faculty";
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
-  {
-    Object.values(faculties).map((fac) => (
-      <div class="flex items-center gap-3 p-3 sm:p-3.5 rounded-xl bg-haw-800/80 border border-haw-400/25 backdrop-blur-xs shadow-xs min-h-15 sm:min-h-17">
-        <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-haw-500/50 border border-haw-300/30 text-white font-bold text-xs tracking-wider shrink-0">
-          {fac.short}
-        </span>
-        <span class="text-xs sm:text-sm text-haw-50 leading-snug font-medium">
-          {fac.name}
-        </span>
-      </div>
-    ))
-  }
+<div class="mx-auto grid max-w-2xl grid-cols-1 gap-3 text-left sm:grid-cols-2">
+  {Object.values(faculties).map((fac) => (
+    <div class="bg-haw-800/80 border-haw-400/25 flex min-h-15 items-center gap-3 rounded-xl border p-3 shadow-xs backdrop-blur-xs sm:min-h-17 sm:p-3.5">
+      <span class="bg-haw-500/50 border-haw-300/30 inline-flex shrink-0 items-center justify-center rounded-md border px-2.5 py-1 text-xs font-bold tracking-wider text-white">
+        {fac.short}
+      </span>
+      <span class="text-haw-50 text-xs leading-snug font-medium sm:text-sm">{fac.name}</span>
+    </div>
+  ))}
 </div>

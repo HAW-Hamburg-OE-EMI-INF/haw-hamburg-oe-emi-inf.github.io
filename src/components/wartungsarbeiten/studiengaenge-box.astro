@@ -9,26 +9,17 @@ export interface Props {
 const { title, studiengaenge } = Astro.props;
 ---
 
-<div class="bg-haw-900/85 rounded-xl p-5 border border-haw-700/50">
-  <h3 class="text-sm font-semibold uppercase tracking-wider text-haw-200 mb-3">
-    {title}
-  </h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm sm:text-base">
-    {
-      studiengaenge.map((item) => (
-        <div class="flex items-start gap-2">
-          <span
-            class="w-2 h-2 rounded-full bg-haw-300 mt-2 shrink-0"
-            aria-hidden="true"
-          />
-          <p class="font-medium text-white leading-snug">
-            {item.name}
-            <span class="text-xs text-haw-200 font-mono whitespace-nowrap ml-1">
-              ({item.degree})
-            </span>
-          </p>
-        </div>
-      ))
-    }
+<div class="bg-haw-900/85 border-haw-700/50 rounded-xl border p-5">
+  <h3 class="text-haw-200 mb-3 text-sm font-semibold tracking-wider uppercase">{title}</h3>
+  <div class="grid grid-cols-1 gap-2.5 text-sm sm:grid-cols-2 sm:text-base">
+    {studiengaenge.map((item) => (
+      <div class="flex items-start gap-2">
+        <span class="bg-haw-300 mt-2 h-2 w-2 shrink-0 rounded-full" aria-hidden="true" />
+        <p class="leading-snug font-medium text-white">
+          {item.name}
+          <span class="text-haw-200 ml-1 font-mono text-xs whitespace-nowrap">({item.degree})</span>
+        </p>
+      </div>
+    ))}
   </div>
 </div>

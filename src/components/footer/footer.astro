@@ -5,10 +5,8 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mt-auto border-t border-slate-200 bg-white py-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500"
-    >
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 md:flex-row">
       <div class="flex flex-wrap items-center gap-2 text-center md:text-left">
         <span class="font-semibold text-slate-700">OE HAW Hamburg</span>
         <span>&bull;</span>
@@ -18,10 +16,7 @@ const currentYear = new Date().getFullYear();
       <nav class="flex flex-wrap items-center justify-center gap-6">
         <FooterLink href="/impressum">Impressum</FooterLink>
         <FooterLink href="/datenschutz">Datenschutzerklärung</FooterLink>
-        <FooterLink
-          href="https://www.instagram.com/oe_emi_inf/"
-          isExternal={true}
-        >
+        <FooterLink href="https://www.instagram.com/oe_emi_inf/" isExternal={true}>
           Instagram
         </FooterLink>
       </nav>

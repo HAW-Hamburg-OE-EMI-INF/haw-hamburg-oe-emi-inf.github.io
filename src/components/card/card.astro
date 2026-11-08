@@ -23,20 +23,16 @@ const variantClasses: Record<string, string> = {
 };
 ---
 
-<div
-  class:list={["rounded-2xl p-6 sm:p-8", variantClasses[variant], className]}
->
-  {
-    (heading || headingTrailingIcon) && (
-      <div class="flex items-center gap-3 mb-4">
-        {headingTrailingIcon && (
-          <div class="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center text-white shrink-0 [&>svg]:w-6 [&>svg]:h-6">
-            <Fragment set:html={headingTrailingIcon} />
-          </div>
-        )}
-        {heading && <h2 class="text-2xl font-bold">{heading}</h2>}
-      </div>
-    )
-  }
+<div class:list={["rounded-2xl p-6 sm:p-8", variantClasses[variant], className]}>
+  {(heading || headingTrailingIcon) && (
+    <div class="mb-4 flex items-center gap-3">
+      {headingTrailingIcon && (
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white [&>svg]:h-6 [&>svg]:w-6">
+          <Fragment set:html={headingTrailingIcon} />
+        </div>
+      )}
+      {heading && <h2 class="text-2xl font-bold">{heading}</h2>}
+    </div>
+  )}
   <slot />
 </div>
