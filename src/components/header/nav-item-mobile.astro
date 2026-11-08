@@ -14,11 +14,13 @@ const isActive = currentPath === href;
 
 <a
   href={href}
-  class={`block rounded-md px-3 py-2 text-base font-medium ${
-    isActive
-      ? "bg-haw-50 text-haw-700 font-semibold"
-      : "hover:text-haw-700 text-slate-600 hover:bg-slate-50"
-  }`}
+  class:list={[
+    `block rounded-md px-3 py-2 text-base font-medium`,
+    {
+      "bg-haw-50 text-haw-700 font-semibold": isActive,
+      "hover:text-haw-700 text-slate-600 hover:bg-slate-50": !isActive,
+    },
+  ]}
 >
   {label}
 </a>

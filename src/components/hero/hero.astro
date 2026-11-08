@@ -23,7 +23,7 @@ const {
 <section
   class:list={[
     "relative flex items-center justify-center overflow-hidden text-white",
-    compact ? "bg-haw-900 py-8 sm:py-10" : "min-h-105 bg-slate-900 md:min-h-120",
+    { "bg-haw-900 py-8 sm:py-10": compact, "min-h-105 bg-slate-900 md:min-h-120": !compact },
     className,
   ]}
 >
@@ -42,14 +42,14 @@ const {
   <div
     class:list={[
       "relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-6",
-      compact ? "py-2 sm:py-3" : "py-12",
+      { "py-2 sm:py-3": compact, "py-12": !compact },
     ]}
   >
     <div class="bg-haw-700 w-full rounded-2xl border border-white/15 px-6 py-5 text-white shadow-2xl backdrop-blur-md sm:py-6">
       <h1
         class:list={[
           "text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl",
-          subtitle || Astro.slots.has("default") ? "mb-3" : "",
+          { "mb-3": subtitle || Astro.slots.has("default") },
         ]}
       >
         {title}
@@ -59,7 +59,7 @@ const {
         <p
           class:list={[
             "text-haw-100/90 mx-auto max-w-4xl text-sm font-medium sm:text-base md:text-lg",
-            Astro.slots.has("default") ? "mb-6" : "",
+            { "mb-6": Astro.slots.has("default") },
           ]}
         >
           {subtitle}

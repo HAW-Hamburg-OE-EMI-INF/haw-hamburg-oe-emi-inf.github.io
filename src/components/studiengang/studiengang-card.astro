@@ -1,5 +1,5 @@
 ---
-import arrowRightIcon from "../../assets/icons/arrow-right.svg?raw";
+import ArrowRightIcon from "../../assets/icons/arrow-right.svg";
 import type { StudiengangEntry } from "../../types/types";
 
 export interface Props {
@@ -23,6 +23,6 @@ const { studiengang } = Astro.props;
   </div>
 
   <div class="group-hover:text-haw-600 ml-3 shrink-0 text-slate-400 transition-all duration-200 group-hover:translate-x-1 [&>svg]:h-5 [&>svg]:w-5">
-    <Fragment set:html={arrowRightIcon} />
+    <ArrowRightIcon />
   </div>
 </a>

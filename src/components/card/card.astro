@@ -1,15 +1,17 @@
 ---
+import type { SvgComponent } from "astro/types";
+
 export interface Props {
   variant?: "white" | "default" | "haw" | "primary" | "dark" | "muted";
   heading?: string;
-  headingTrailingIcon?: string;
+  headingTrailingIcon?: SvgComponent;
   class?: string;
 }
 
 const {
   variant = "white",
   heading,
-  headingTrailingIcon,
+  headingTrailingIcon: HeadingTrailingIcon,
   class: className = "",
 } = Astro.props as Props;
 
@@ -24,11 +26,11 @@ const variantClasses: Record<string, string> = {
 ---
 
 <div class:list={["rounded-2xl p-6 sm:p-8", variantClasses[variant], className]}>
-  {(heading || headingTrailingIcon) && (
+  {(heading || HeadingTrailingIcon) && (
     <div class="mb-4 flex items-center gap-3">
-      {headingTrailingIcon && (
+      {HeadingTrailingIcon && (
         <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white [&>svg]:h-6 [&>svg]:w-6">
-          <Fragment set:html={headingTrailingIcon} />
+          <HeadingTrailingIcon />
         </div>
       )}
       {heading && <h2 class="text-2xl font-bold">{heading}</h2>}
