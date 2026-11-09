@@ -30,11 +30,6 @@ export interface LinkCollectionEntry {
   teamsCode?: string;
 }
 
-export interface FAQEntry {
-  question: string;
-  answer: string;
-}
-
 export interface StudiengangDetailsPage {
   entryId: StudiengangPageId;
   base: `/studiengang`;

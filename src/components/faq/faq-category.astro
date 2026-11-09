@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  type: string;
+}
+
+const { title, description, type: categoryId } = Astro.props;
+
+const content = await Astro.slots.render("default");
+const questionCount = Math.max(0, content.split("data-faq-item").length - 1);
+---
+
+<section
+  class="scroll-mt-20 space-y-4"
+  data-category-count={questionCount}
+  data-category-id={categoryId}
+  data-category-title={title}
+  id={categoryId}
+>
+  <div class="border-b border-slate-200 pb-2">
+    <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+      <span class="bg-haw-100 text-haw-800 shrink-0 rounded px-2 py-0.5 text-xs font-bold tracking-wider uppercase">
+        {questionCount}&nbsp;{questionCount === 1 ? "Frage" : "Fragen"}
+      </span>
+      <h2 class="w-full text-lg font-bold text-slate-900 sm:w-auto">{title}</h2>
+    </div>
+    {description && <p class="mt-1 text-sm text-slate-600">{description}</p>}
+  </div>
+
+  <div class="space-y-3">
+    <slot />
+  </div>
+</section>
