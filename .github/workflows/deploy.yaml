@@ -31,6 +31,9 @@ jobs:
       - name: Check formatting (oxfmt)
         run: npm run fmt:check
 
+      - name: Check TypeScript
+        run: npm run typecheck
+
       - name: Run linter (ESLint)
         run: npm run lint
 
