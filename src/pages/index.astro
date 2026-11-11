@@ -2,8 +2,10 @@
 import CampusImage from "../assets/background/Campus-Berliner-Tor-2018.webp";
 import FacultyTiles from "../components/hero/faculty-tiles.astro";
 import Hero from "../components/hero/hero.astro";
+import OeInfoCard from "../components/oe-info/oe-info-card.astro";
 import SponsorCard from "../components/sponsor/sponsor-card.astro";
 import Wartungsarbeiten from "../components/wartungsarbeiten/wartungsarbeiten.astro";
+import { oeInfoCardDataEMI, oeInfoCardDataINF } from "../data/general-info";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -17,9 +19,10 @@ import Layout from "../layouts/Layout.astro";
     <FacultyTiles />
   </Hero>
 
-  <!-- Main Content Container -->
   <div class="mx-auto w-full max-w-4xl space-y-8 px-4 py-10 sm:px-6">
     <Wartungsarbeiten />
+    <OeInfoCard data={oeInfoCardDataEMI} />
+    <OeInfoCard data={oeInfoCardDataINF} />
     <SponsorCard />
   </div>
 </Layout>

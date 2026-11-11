@@ -47,3 +47,20 @@ export interface FacultyEntry {
   name: string;
   short: FacultyId;
 }
+
+export interface OeStartEvent {
+  date: string;
+  time: string;
+  building: string;
+  buildingShort: string;
+  room: string;
+  mapsUrl: string;
+}
+
+export interface OeInfoCardData {
+  studiengaenge: StudiengangEntry[];
+  startDate: string;
+  endDate: string;
+  startEvent: OeStartEvent;
+  contactEmail: string;
+}

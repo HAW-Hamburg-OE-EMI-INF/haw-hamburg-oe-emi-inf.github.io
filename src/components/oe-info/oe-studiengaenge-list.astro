@@ -1,0 +1,22 @@
+---
+import type { StudiengangEntry } from "../../types/types";
+
+export interface Props {
+  studiengaenge: StudiengangEntry[];
+}
+
+const { studiengaenge } = Astro.props as Props;
+---
+
+{studiengaenge.map((item, index) => {
+  const formatted = `${item.name} (${item.short})`;
+  const isLast = index === studiengaenge.length - 1;
+  const isSecondToLast = index === studiengaenge.length - 2;
+
+  return (
+    <>
+      <strong class="text-haw-800 font-bold">{formatted}</strong>
+      {isSecondToLast ? " und " : !isLast ? ", " : ""}
+    </>
+  );
+})}

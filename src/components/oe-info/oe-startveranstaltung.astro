@@ -1,0 +1,24 @@
+---
+import type { OeStartEvent } from "../../types/types";
+
+export interface Props {
+  startEvent: OeStartEvent;
+}
+
+const { startEvent } = Astro.props as Props;
+---
+
+Die OE startet am{" "}
+<strong class="font-bold text-slate-900">
+  {startEvent.date} um {startEvent.time}
+</strong>{" "}
+in {startEvent.room ? `${startEvent.room} des ` : ""}
+<a
+  class="text-haw-600 hover:text-haw-800 font-medium underline underline-offset-2 transition-colors"
+  href={startEvent.mapsUrl}
+  rel="noreferrer noopener"
+  target="_blank"
+>
+  {startEvent.building}
+</a>{" "}
+({startEvent.buildingShort}).
