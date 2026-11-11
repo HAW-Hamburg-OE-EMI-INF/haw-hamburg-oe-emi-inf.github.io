@@ -1,0 +1,38 @@
+---
+import OeLogo from "../../assets/logo/logo-oe.svg";
+import type { RoadmapData } from "../../types/types";
+import Card from "../card/card.astro";
+import RoadmapDayTile from "./roadmap-day-tile.astro";
+
+export interface Props {
+  data: RoadmapData;
+}
+
+const { data } = Astro.props as Props;
+const { metadata, days } = data;
+---
+
+<Card variant="white">
+  <div class="mb-6 flex flex-wrap items-center gap-4 sm:gap-5">
+    <OeLogo class="h-16 w-16 shrink-0 sm:h-20 sm:w-20" />
+
+    <div class="min-w-[min(100%,12.5rem)] flex-1 space-y-0.5">
+      <h2 class="text-2xl leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl">
+        {metadata.title}
+      </h2>
+      <p class="text-haw-700 text-sm font-semibold sm:text-base">{metadata.subtitle}</p>
+      <p class="text-sm font-medium text-slate-700 sm:text-base">{metadata.room}</p>
+    </div>
+  </div>
+
+  <div class="-mx-6 flex snap-x snap-mandatory scroll-pl-6 gap-3 overflow-x-auto scroll-smooth px-6 pb-2 sm:-mx-8 sm:scroll-pl-8 sm:gap-4 sm:px-8 lg:mx-0 lg:scroll-pl-0 lg:overflow-x-visible lg:px-0 lg:pb-0">
+    {days.map((day, index) => (
+      <RoadmapDayTile day={day} isFirst={index === 0} isLast={index === days.length - 1} />
+    ))}
+  </div>
+
+  <div class="mt-5 flex items-center justify-center gap-2 border-t border-slate-100 pt-4 text-slate-700">
+    <OeLogo class="h-6 w-6 shrink-0" />
+    <span class="text-xs font-bold tracking-tight sm:text-sm">Orientierungseinheit</span>
+  </div>
+</Card>

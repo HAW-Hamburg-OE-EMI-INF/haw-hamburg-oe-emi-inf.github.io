@@ -64,3 +64,23 @@ export interface OeInfoCardData {
   startEvent: OeStartEvent;
   contactEmail: string;
 }
+
+export interface RoadmapDay {
+  weekday: string;
+  date: string;
+  start: string;
+  end: string;
+  items: string[];
+  eveningProgram: string;
+}
+
+export interface RoadmapMetadata {
+  title: string;
+  subtitle: string;
+  room: string;
+}
+
+export interface RoadmapData {
+  metadata: RoadmapMetadata;
+  days: RoadmapDay[];
+}

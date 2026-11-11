@@ -3,9 +3,11 @@ import CampusImage from "../assets/background/Campus-Berliner-Tor-2018.webp";
 import FacultyTiles from "../components/hero/faculty-tiles.astro";
 import Hero from "../components/hero/hero.astro";
 import OeInfoCard from "../components/oe-info/oe-info-card.astro";
+import RoadmapCard from "../components/roadmap/roadmap-card.astro";
 import SponsorCard from "../components/sponsor/sponsor-card.astro";
 import Wartungsarbeiten from "../components/wartungsarbeiten/wartungsarbeiten.astro";
 import { oeInfoCardDataEMI, oeInfoCardDataINF } from "../data/general-info";
+import { roadmapDataET } from "../data/roadmap";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -23,6 +25,7 @@ import Layout from "../layouts/Layout.astro";
     <Wartungsarbeiten />
     <OeInfoCard data={oeInfoCardDataEMI} />
     <OeInfoCard data={oeInfoCardDataINF} />
+    <RoadmapCard data={roadmapDataET} />
     <SponsorCard />
   </div>
 </Layout>
