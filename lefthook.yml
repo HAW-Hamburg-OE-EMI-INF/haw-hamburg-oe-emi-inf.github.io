@@ -1,3 +1,4 @@
+skip_lfs: true
 pre-commit:
   commands:
     fmt:check:
