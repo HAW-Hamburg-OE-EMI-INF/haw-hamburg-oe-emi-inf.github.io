@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 interface Props {
   backgroundImage?: ImageMetadata;
-  imageAlt: string;
+  imageAlt?: string;
   title: string;
   subtitle?: string;
   compact?: boolean;
@@ -31,7 +31,7 @@ const {
   {backgroundImage && (
     <div class="absolute inset-0 z-0">
       <Image
-        alt={imageAlt}
+        alt={imageAlt ?? null}
         class="h-full w-full scale-105 object-cover opacity-35 brightness-75 filter"
         loading="eager"
         src={backgroundImage}
